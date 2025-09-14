@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esiyla için Özel Çıkma Teklifi</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Comic Sans MS', sans-serif; overflow-x:hidden; scroll-behavior:smooth; background:#fff; }
+
+/* Bölümler */
+section {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  font-size:2em;
+  text-align:center;
+  transition: all 0.5s;
+  padding: 0 20px;
+  color:white;
+  position:relative;
+}
+#sec1 { background:#ff6f61; }
+#sec2 { background:#6b5b95; }
+#sec3 { background:#88b04b; }
+#sec4 { background:#f7cac9; color:black; }
+#sec5 { background:#ffcc5c; color:black; }
+
+/* Butonlar */
+.btn {
+  padding:15px 30px;
+  font-size:1.2em;
+  cursor:pointer;
+  border:none;
+  border-radius:15px;
+  margin:10px;
+  transition:0.3s;
+}
+.btn:hover { transform: scale(1.1); }
+
+/* Animasyonlar */
+@keyframes bounce {0%,20%,50%,80%,100%{transform:translateY(0);}40%{transform:translateY(-20px);}60%{transform:translateY(-10px);}}
+.bounce { animation: bounce 1s infinite; }
+
+.emoji { position:absolute; font-size:2em; pointer-events:none; animation: floatUp 1s forwards; }
+@keyframes floatUp {0%{opacity:1; transform:translateY(0) scale(1);}100%{opacity:0; transform:translateY(-100px) scale(1.5);}}
+</style>
+</head>
+<body>
+
+<section id="sec1">
+  Hey Esi! 👋
+  <span class="bounce">💖</span>
+</section>
+
+<section id="sec2">
+  Uzun zamandır sana bir şey söylemek istiyordum… 📝<br>
+  (Seninle geçirdiğim her anı unutamıyorum)
+</section>
+
+<section id="sec3">
+  Seni ilk gördüğüm an aklımda hala… 😍<br>
+  Senin gülüşün, bakışların, her şeyin…<br>
+  <small style="font-size:0.5em;">(Küçük sır: Hala her gece seni düşünüyorum 😅)</small>
+</section>
+
+<section id="sec4">
+  Bana çıkmayı kabul eder misin? 💖<br><br>
+  <button class="btn" onclick="celebrate('❤️')">Evet!</button>
+  <button class="btn" onclick="celebrate('😂')">Hayır</button>
+</section>
+
+<section id="sec5">
+  Eğer 'Evet!' dediysen 💕<br>
+  Seninle hayatımın en güzel hikayesini yazmak istiyorum…  
+  <br><br>
+  <small style="font-size:0.7em;">(Not: Bu siteyi sana özel yaptım, çünkü seni çok seviyorum 😎)</small>
+</section>
+
+<script>
+// Emoji patlaması fonksiyonu
+function celebrate(emoji){
+  for(let i=0;i<25;i++){
+    const span = document.createElement('span');
+    span.className = 'emoji';
+    span.innerText = emoji;
+    span.style.left = Math.random()*80+'%';
+    span.style.top = Math.random()*80+'%';
+    document.body.appendChild(span);
+    setTimeout(()=>{ span.remove(); },1000);
+  }
+  if(emoji==='❤️'){
+    alert('Ooo harika! 💕 Seni çok seviyorum Esi!');
+  } else {
+    alert('Hmm belki sonra… 😂 Ama yine de seni seviyorum!');
+  }
+}
+</script>
+
+</body>
+</html>
